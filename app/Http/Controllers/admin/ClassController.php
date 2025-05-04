@@ -1,26 +1,32 @@
 <?php
 
-namespace App\Http\Controllers\Admin;
+namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\TbClass;
 use Illuminate\Http\Request;
 
-class StudentDataController extends Controller
+class ClassController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('admin.studentdata.studentdata');
+        $data = TbClass::paginate(10);
+        return view('admin.class.index', compact('data'));
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(Request $request)
     {
-        return view('admin.studentdata.create');
+        $data = new TbClass();
+        $data->class_name = $request->class_name;
+        $data->teacher_id = $request->teacher_id;
+        $data->save();
+        return $data;
     }
 
     /**
@@ -36,7 +42,8 @@ class StudentDataController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $data = TbClass::find($id);
+        return $data;
     }
 
     /**
@@ -52,7 +59,11 @@ class StudentDataController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $data = TbClass::find($id);
+        if (isset($request->class_name)) $data->class_name = $request->class_name;
+        if (isset($request->teacher_id)) $data->teacher_id = $request->teacher_id;
+        $data->save();
+        return $data;
     }
 
     /**
@@ -60,6 +71,7 @@ class StudentDataController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $data = TbClass::find($id);
+        $data->delete();
     }
 }

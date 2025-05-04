@@ -28,4 +28,10 @@ class Student extends Model
         'mother_job',
         'photo'
     ];
+    protected $dates = ['created_at', 'updated_at'];
+
+    public function class()
+    {
+        return $this->belongsTo(TbClass::class, 'class_id', 'id');
+    }
 }

@@ -17,7 +17,7 @@ class Teacher extends Model
         'nip',
         'birthdate',
         'phone'
-    ]
-  ;  
+    ];  
+    protected $dates = ['created_at', 'updated_at'];
 }
 

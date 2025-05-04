@@ -8,7 +8,7 @@
             <div class="card-header pb-0">
               <div class="d-flex justify-content-between mb-0">
               <!-- tambah data -->
-              <a href="{{ route('classdata.create') }}">
+              <a href="/">
                 <button class="btn btn-primary">
                   <i class="ni ni-fat-add"></i> Tambah Data
                 </button>
@@ -24,50 +24,34 @@
                 <table class="table text-center align-items-center mb-0"> 
                 <thead>
                   <tr>
+                    <th id="sortKelas" onclick="sortTable(1)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">#</th>
                     <th id="sortKelas" onclick="sortTable(1)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Kelas ↑↓</th>
                     <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Wali Kelas</th>
-                    <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Jumlah Siswa</th>
                     <th id="sortTahun" onclick="sortTable(4)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Tahun Ajaran ↑↓</th>
                     <th id="sortStatus" onclick="sortTable(5)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Status ↑↓</th>
                     <th class="text-center text-dark text-uppercase text-xs font-weight-bolder opacity-7">Aksi</th>
                   </tr>
+
+                  <?php $no = 1; ?>
                 </thead>
 
                   <tbody>
+                    @foreach ($data as $value)
                     <tr>
-                      <td class="align-middle text-center text-sm">X IPA 1</td>
-                      <td class="align-middle text-center text-sm">Ibu Sari</td>
-                      <td class="align-middle text-center text-sm">
-                        <a href="{{ route('classdata.students', ['id' => 1]) }}" class="text-primary text-decoration-none">32</a>
-                      </td>
-                      <td class="align-middle text-center text-sm">2024/2025</td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Aktif</span>
-                      </td>
-                      <td class="align-middle">
-                        <button type="button" class="btn btn-primary btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Edit Kelas">
-                          <a href="javascript:;" class="text-white font-weight-bold text-xs">
-                            <i class="fa fa-edit pt-1" aria-hidden="true"></i>
-                          </a>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Hapus Kelas">
-                          <a href="javascript:;" class="text-white font-weight-bold text-xs">
-                            <i class="fa fa-trash pt-1" aria-hidden="true"></i>
-                          </a>
-                        </button>
-                      </td>
-                    </tr>
+                    <td class="align-middle text-center text-sm">{{ $no++ }}</td>
+                      <td class="align-middle text-center text-sm">{{$value->class_name}}</td>
+                      <td class="align-middle text-center text-sm">{{$value->teacher->name}}</td>
+                      <td class="align-middle text-center text-sm">{{$value->academic_year_first}}/{{$value->academic_year_last}}</td>
 
-                    <tr>
-                      <td class="align-middle text-center text-sm">XI IPS 2</td>
-                      <td class="align-middle text-center text-sm">Pak Budi</td>
+                      @if($value->status == 'active')
                       <td class="align-middle text-center text-sm">
-                        <a href="siswa_kelas_xiips2.html" class="text-primary text-decoration-none">29</a>
+                        <span class="badge badge-sm bg-gradient-success">aktif</span>
                       </td>
-                      <td class="align-middle text-center text-sm">2024/2025</td>
+                      @else
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-warning">Tidak Aktif</span>
+                        <span class="badge badge-sm bg-gradient-danger">tidak aktif</span>
                       </td>
+                      @endif
                       <td class="align-middle">
                         <button type="button" class="btn btn-primary btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Edit Kelas">
                           <a href="javascript:;" class="text-white font-weight-bold text-xs">
@@ -81,30 +65,7 @@
                         </button>
                       </td>
                     </tr>
-
-                    <tr>
-                      <td class="align-middle text-center text-sm">XII IPA 3</td>
-                      <td class="align-middle text-center text-sm">Ibu Lina</td>
-                      <td class="align-middle text-center text-sm">
-                        <a href="siswa_kelas_xiiipa3.html" class="text-primary text-decoration-none">35</a>
-                      </td>
-                      <td class="align-middle text-center text-sm">2024/2025</td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Aktif</span>
-                      </td>
-                      <td class="align-middle">
-                        <button type="button" class="btn btn-primary btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Edit Kelas">
-                          <a href="javascript:;" class="text-white font-weight-bold text-xs">
-                            <i class="fa fa-edit pt-1" aria-hidden="true"></i>
-                          </a>
-                        </button>
-                        <button type="button" class="btn btn-danger btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Hapus Kelas">
-                          <a href="javascript:;" class="text-white font-weight-bold text-xs">
-                            <i class="fa fa-trash pt-1" aria-hidden="true"></i>
-                          </a>
-                        </button>
-                      </td>
-                    </tr>
+                    @endforeach
                   </tbody>
 
 

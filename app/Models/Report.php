@@ -13,11 +13,26 @@ class Report extends Model
     protected $fillable = 
     [
         'student_id',
+        'class_id',
         'teacher_id',
         'daily_value',
         'monthly_exam',
         'final_exam',
-        'academic_year_first',
-        'academic_year_last'
     ];
+    protected $dates = ['created_at', 'updated_at'];
+
+    public function student()
+    {
+        return $this->belongsTo(Student::class, 'student_id', 'id');
+    }
+
+    public function class()
+    {
+        return $this->belongsTo(TbClass::class, 'class_id', 'id');
+    }
+
+    public function teacher()
+    {
+        return $this->belongsTo(Teacher::class, 'teacher_id', 'id');
+    }
 }

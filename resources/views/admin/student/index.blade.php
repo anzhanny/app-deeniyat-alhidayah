@@ -8,7 +8,7 @@
             <div class="card-header pb-0">
               <div class="d-flex justify-content-between mb-0">
               <!-- tambah data -->
-              <a href="{{ route('reportcarddata.create') }}">
+              <a href="/">
                 <button class="btn btn-primary">
                   <i class="ni ni-fat-add"></i> Tambah Data
                 </button>
@@ -23,57 +23,56 @@
                 <table class="table text-center align-items-center mb-0"> 
                   <thead>
                     <tr>
-                      <th id="sortKelas" onclick="sortTable(1)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Kelas ↑↓</th>
-                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Wali Kelas</th>
-                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Status Raport</th>
+                        <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">#</th>
+                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Nama Siswa</th>
+                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">NIS ↑↓</th>
+                      <th id="sortNis" onclick="sortTable(4)" style="cursor:pointer;" class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Kelas</th>
+                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">No Telp</th>
+                      <th class="text-center text-uppercase text-dark text-xs font-weight-bolder opacity-7">Status</th>
                       <th class="text-center text-dark text-uppercase text-xs font-weight-bolder opacity-7">Aksi</th>
                     </tr>
+                    <?php $no = 1; ?>
                   </thead>
 
                   <tbody>
+                    @foreach ($data as $value)
                     <tr>
-                      <td class="align-middle text-center text-sm">X IPA 2</td>
-                      <td class="align-middle text-center text-sm">Ibu Ratna</td>
+                        <td class="align-middle text-center text-sm">{{ $no++ }}</td>
+                        <td class="align-middle text-center text-sm">{{ $value->name }}</td>
+                        <td class="align-middle text-center text-sm">{{ $value->nis }}</td>
+                        <td class="align-middle text-center text-sm">{{  $value->class->class_name }}</td>
+                        <td class="align-middle text-center text-sm">{{ $value->phone }}</td>
+                        @if($value->is_active == '1')
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Selesai</span>
+                        <span class="badge badge-sm bg-gradient-success">aktif</span>
                       </td>
-                      <td class="align-middle">
-                        <a href="raport_xipa2.html" class="btn btn-info btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Lihat Nilai Raport">
-                          <i class="fa fa-eye pt-1 text-white"></i>
-                        </a>
-                      </td>
-                    </tr>
-                    <tr>
-                      <td class="align-middle text-center text-sm">XI IPA 1</td>
-                      <td class="align-middle text-center text-sm">Pak Heri</td>
+                      @else
                       <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-warning">Proses</span>
+                        <span class="badge badge-sm bg-gradient-danger">tidak aktif</span>
                       </td>
-                      <td class="align-middle">
-                        <a href="raport_xiipa1.html" class="btn btn-info btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Lihat Nilai Raport">
-                          <i class="fa fa-eye pt-1 text-white"></i>
-                        </a>
-                      </td>
+                      @endif
+                        <td class="align-middle">
+                            <button type="button" class="btn btn-primary btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Edit Siswa">
+                            <a href="javascript:;" class="text-white font-weight-bold text-xs">
+                                <i class="fa fa-edit pt-1" aria-hidden="true"></i>
+                            </a>
+                            </button>
+                            <button type="button" class="btn btn-danger btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Hapus Siswa">
+                            <a href="javascript:;" class="text-white font-weight-bold text-xs">
+                                <i class="fa fa-trash pt-1" aria-hidden="true"></i>
+                            </a>
+                            </button>
+                        </td>
                     </tr>
-                    <tr>
-                      <td class="align-middle text-center text-sm">XII IPS 3</td>
-                      <td class="align-middle text-center text-sm">Ibu Fitri</td>
-                      <td class="align-middle text-center text-sm">
-                        <span class="badge badge-sm bg-gradient-success">Selesai</span>
-                      </td>
-                      <td class="align-middle">
-                        <a href="raport_xiiips3.html" class="btn btn-info btn-icon btn-sm p-1" style="width: 30px; height: 30px;" title="Lihat Nilai Raport">
-                          <i class="fa fa-eye pt-1 text-white"></i>
-                        </a>
-                      </td>
-                    </tr>
+
+                    @endforeach
                   </tbody>
+
                 </table>
               </div>
             </div>
-
           </div>
-
+                      
           <nav aria-label="Page navigation example">
               <ul class="pagination justify-content-end">
                 <li class="page-item disabled">

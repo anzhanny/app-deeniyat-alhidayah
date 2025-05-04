@@ -3,23 +3,18 @@
     $breadcrumbs = [
         // Admin
         'admin.dashboard' => 'Dashboard',
-        'admin.studentdata' => 'Data Siswa',
-        'admin.studentdata.create' => 'Tambah Data Siswa',
+        
+        'admin.student.index' => 'Data Siswa',
+       
+        'admin.class.index' => 'Data Kelas',
 
-        'admin.classdata.classdata' => 'Data Kelas',
-        'admin.classdata.create' => 'Tambah Data Kelas',
+        'admin.teacher.index' => 'Data Guru',
+       
+        'admin.paymentspp.index' => 'Data Pembayaran SPP',
+        
+        'admin.report.index' => 'Data Raport',
 
-        'admin.teacherdata' => 'Data Guru',
-        'admin.teacherdata.create' => 'Tambah Data Guru',
-
-        'admin.sppdata' => 'Data Pembayaran SPP',
-        'admin.sppdata.create' => 'Tambah Data Pembayaran SPP',
-
-        'admin.reportcarddata' => 'Data Raport',
-        'admin.reportcarddata.create' => 'Tambah Data Raport',
-
-        'admin.materialdata' => 'Data Materi',
-        'admin.materialdata.create' => 'Tambah Data Materi',
+        'admin.material.index' => 'Data Materi',
         
         
         // Teacher

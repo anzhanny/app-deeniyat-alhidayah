@@ -48,7 +48,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.studentdata') ? 'active' : '' }}" href="{{ route('admin.studentdata') }}">
+          <a class="nav-link {{ Route::is('admin.student.index') ? 'active' : '' }}" href="{{ route('admin.student.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-hat-3 text-dark text-sm opacity-10"></i>
             </div>
@@ -56,7 +56,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.classdata.classdata') ? 'active' : '' }}" href="{{ route('admin.classdata.classdata') }}">
+            <a class="nav-link {{ Route::is('admin.class.index') ? 'active' : '' }}" href="{{ route('admin.class.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-building text-dark text-sm opacity-10"></i>
             </div>
@@ -64,7 +64,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.teacherdata') ? 'active' : '' }}" href="{{ route('admin.teacherdata') }}">
+          <a class="nav-link {{ Route::is('admin.teacher.index') ? 'active' : '' }}" href="{{ route('admin.teacher.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-badge text-dark text-sm opacity-10"></i>
             </div>
@@ -72,7 +72,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.materialdata') ? 'active' : '' }}" href="{{ route('admin.materialdata') }}">
+          <a class="nav-link {{ Route::is('admin.material.index') ? 'active' : '' }}" href="{{ route('admin.material.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-books text-dark text-sm opacity-10"></i>
             </div>
@@ -80,7 +80,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.reportcarddata') ? 'active' : '' }}" href="{{ route('admin.reportcarddata') }}">
+          <a class="nav-link {{ Route::is('admin.report.index') ? 'active' : '' }}" href="{{ route('admin.report.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-book-bookmark text-dark text-sm opacity-10"></i>
             </div>
@@ -88,7 +88,7 @@
           </a>
         </li>
         <li class="nav-item">
-          <a class="nav-link {{ Route::is('admin.sppdata') ? 'active' : '' }}" href="{{ route('admin.sppdata') }}">
+          <a class="nav-link {{ Route::is('admin.paymentspp.index') ? 'active' : '' }}" href="{{ route('admin.paymentspp.index') }}">
             <div class="icon icon-shape icon-sm border-radius-md text-center me-2 d-flex align-items-center justify-content-center">
               <i class="ni ni-money-coins text-dark text-sm opacity-10"></i>
             </div>
